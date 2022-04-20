@@ -5,8 +5,6 @@ service: products
 provider:
   name: aws
   runtime: nodejs14.x
-  stage: ${param:STAGE, 'dev'}
-  region: ${param:REGION, 'us-east-1'}
   environment:
     VERSIONS: ${param:VERSIONS, '1'}
   iamRoleStatements:
