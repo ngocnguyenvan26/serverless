@@ -78,6 +78,7 @@ export default class ProductController {
       const params = await this.productValidate.vId(event.pathParameters) as IProductEntities;
       const result = await this.productService.findOne(params.id);
       // const result = {}
+      let b = 2;
       return ResponseUtil.success(result);
     } catch (err) {
       console.error(err);
