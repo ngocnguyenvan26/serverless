@@ -10,5 +10,5 @@ export default {
 
 export const PAGE_SIZE = {
   Standand: 10,
-  Products: 2,
+  Products: 2
 };
