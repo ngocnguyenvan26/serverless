@@ -5,9 +5,10 @@ service: products
 provider:
   name: aws
   runtime: nodejs14.x
+  stage: ${param:STAGE, 'dev'}
+  region: ${param:REGION, 'us-east-1'}
   environment:
-    NODE_ENV: uat
-    apiVersion: 2
+    VERSIONS: ${param:VERSIONS, '1'}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -25,45 +26,5 @@ plugins:
   - serverless-plugin-typescript 
   - serverless-offline
 
-package:
-  exclude:
-    - config/.env.stg
-    - config/.env.pro
-  include:
-    - config/.env.dev
-
-# functions:
-#   - ${file(app/modules/products/serverless.yml)}
 functions:
-  create:
-    handler: app/modules/products/productHandler.create
-    events:
-      - http:
-          path: products
-          method: post
-  update:
-    handler: app/modules/products/productHandler.update
-    events:
-      - http:
-          path: products/{id}
-          method: put
-  find:
-    handler: app/modules/products/productHandler.find
-    events:
-      - http:
-          path: products
-          method: get
-  findOne:
-    handler: app/modules/products/productHandler.findOne
-    events:
-      - http:
-          path: products/{id}
-          method: get
-
-  deleteOne:
-    handler: app/modules/products/productHandler.deleteOne
-    events:
-      - http:
-          path: products/{id}
-          method: delete
-
+  ${file(app/modules/products/serverless.yml)}
