@@ -48,6 +48,7 @@ export default class ProductService {
       let c = 1;
       let d = 2;
       let de = 2;
+      let de2 = 2;
       const exec = await qB.limit(limit).exec();
       console.log('last key', exec.lastKey)
       console.log('json', exec.toJSON())
