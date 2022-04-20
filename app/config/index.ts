@@ -5,8 +5,7 @@ dotenv.config({
   path: dotenvPath,
 });
 export default {
-  port: process.env.APP_PORT,
-  portSchedule: process.env.APP_PORT_SCHEDULE || '2021',
+  VERSIONS: process.env.VERSIONS
 };
 
 export const PAGE_SIZE = {

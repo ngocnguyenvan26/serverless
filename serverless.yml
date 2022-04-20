@@ -2,11 +2,23 @@ service: products
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   environment:
     NODE_ENV: uat
     apiVersion: 2
-
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      # Restrict our IAM role permissions to
+      # the specific table for the stage
+      Resource: '*'
 plugins:
   - serverless-plugin-typescript 
   - serverless-offline
@@ -17,19 +29,7 @@ package:
     - config/.env.pro
   include:
     - config/.env.dev
-# iamRoleStatements:
-#   - Effect: Allow
-#     Action:
-#       - dynamodb:DescribeTable
-#       - dynamodb:Query
-#       - dynamodb:Scan
-#       - dynamodb:GetItem
-#       - dynamodb:PutItem
-#       - dynamodb:UpdateItem
-#       - dynamodb:DeleteItem
-#     # Restrict our IAM role permissions to
-#     # the specific table for the stage
-#     Resource: '*'
+
 functions:
   create:
     handler: app/modules/products/productHandler.create

@@ -1,4 +1,5 @@
 import dynamoose from 'dynamoose';
+import config from '../../config';
 import { IProductQueryEntities, IProductEntities } from './models/entities';
 import ProductModel from './models/index';
 
@@ -46,7 +47,7 @@ export default class ProductService {
       console.log('last key', exec.lastKey)
       console.log('json', exec.toJSON())
 
-      return { results: exec.toJSON(), lastKey: exec.lastKey};
+      return { results: exec.toJSON(), lastKey: exec.lastKey, verions: config.VERSIONS};
     } catch (err) {
       console.log('err', err)
       throw err;
