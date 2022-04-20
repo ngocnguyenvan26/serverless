@@ -14,7 +14,7 @@ This is simple REST API example for AWS Lambda By Serverless framwork with TypeS
 
 * CI/CD and support multi-stage deployments
 
-### Project structure
+## Project structure
 
 The project code base is mainly located within the `app` folder. This folder is divided in:
 
@@ -49,12 +49,12 @@ The project code base is mainly located within the `app` folder. This folder is 
 npm run deploy
 
 ```
-### To Test It Locally
+## To Test It Locally
 
 * Run ```npm install``` to install all the necessary dependencies.
 * Run ```npm run local``` use serverless offline to test locally. 
 
-### Deploy on AWS, simply run:
+## Deploy on AWS, simply run:
 
 ```
 $ npm run deploy
@@ -67,9 +67,10 @@ $ serverless deploy
 ## List enpoint
 
 ```
- POST - https://mtagmt62g4.execute-api.us-east-1.amazonaws.com/dev/products
-  PUT - https://mtagmt62g4.execute-api.us-east-1.amazonaws.com/dev/products/{id}
-  GET - https://mtagmt62g4.execute-api.us-east-1.amazonaws.com/dev/products
-  GET - https://mtagmt62g4.execute-api.us-east-1.amazonaws.com/dev/products/{id}
-  DELETE - https://mtagmt62g4.execute-api.us-east-1.amazonaws.com/dev/products/{id}
+  POST - https://hc44ryn5ue.execute-api.us-east-1.amazonaws.com/dev/products
+  PUT - https://hc44ryn5ue.execute-api.us-east-1.amazonaws.com/dev/products/{id}
+  GET - https://hc44ryn5ue.execute-api.us-east-1.amazonaws.com/dev/products
+  GET - https://hc44ryn5ue.execute-api.us-east-1.amazonaws.com/dev/products/{id}
+  DELETE - https://hc44ryn5ue.execute-api.us-east-1.amazonaws.com/dev/products/{id}
 ```
+## CI/CD
