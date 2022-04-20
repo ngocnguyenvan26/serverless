@@ -1,3 +1,5 @@
+org: ngocnguyenvan
+app: sls-bid
 service: products
 
 provider:
