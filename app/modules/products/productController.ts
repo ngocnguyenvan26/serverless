@@ -22,7 +22,6 @@ export default class ProductController {
       const body = await this.productValidate.vCreateOrUpdate(JSON.parse(event.body)) as IProductEntities;
       console.log('body', body);
       const result = await this.productService.create(body);
-      // const result = {}
       return ResponseUtil.success(result);
     } catch (err) {
       console.error(err);
@@ -41,7 +40,6 @@ export default class ProductController {
       const params = await this.productValidate.vId(event.pathParameters) as IProductEntities;
       const body = await this.productValidate.vCreateOrUpdate(JSON.parse(event.body)) as IProductEntities;
       console.log('params', body);
-      // const result = {}
       const result = await this.productService.update(params.id, body);
       return ResponseUtil.success(result);
     } catch (err) {
@@ -77,9 +75,6 @@ export default class ProductController {
       console.log('functionName', context.functionName);
       const params = await this.productValidate.vId(event.pathParameters) as IProductEntities;
       const result = await this.productService.findOne(params.id);
-      // const result = {}
-      let b = 2;
-      let c = 2;
       return ResponseUtil.success(result);
     } catch (err) {
       console.error(err);
@@ -96,7 +91,6 @@ export default class ProductController {
       console.log('functionName', context.functionName);
       const params = await this.productValidate.vId(event.pathParameters) as IProductEntities;
       const result = await this.productService.del(params.id);
-      // const result = {}
       return ResponseUtil.success(result);
     } catch (err) {
       console.error(err);
