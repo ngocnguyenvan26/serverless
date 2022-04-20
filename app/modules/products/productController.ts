@@ -79,6 +79,7 @@ export default class ProductController {
       const result = await this.productService.findOne(params.id);
       // const result = {}
       let b = 2;
+      let c = 2;
       return ResponseUtil.success(result);
     } catch (err) {
       console.error(err);
