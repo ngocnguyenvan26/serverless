@@ -16,8 +16,10 @@
   "dependencies": {
     "aws-sdk": "^2.1116.0",
     "dotenv": "^8.2.0",
+    "dynamoose": "^2.7.3",
+    "jest": "^27.5.1",
     "joi": "^17.6.0",
-    "mongoose": "^5.9.10",
+    "middy": "^0.36.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -26,7 +28,6 @@
     "@types/dotenv-safe": "^8.1.0",
     "@types/lambda-tester": "^3.6.0",
     "@types/mocha": "^7.0.2",
-    "@types/mongoose": "^5.7.14",
     "@types/sinon": "^9.0.0",
     "@types/supertest": "^2.0.8",
     "chai": "^4.2.0",

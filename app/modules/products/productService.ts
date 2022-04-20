@@ -1,21 +1,60 @@
-import AWS from "aws-sdk";
-import { v4 as uuidv4 } from 'uuid';
-import ProductModel from "./models";
+import dynamoose from 'dynamoose';
+import { IProductQueryEntities, IProductEntities } from './models/entities';
+import ProductModel from './models/index';
 
-export class ProductService {
-  private documentClient = new AWS.DynamoDB.DocumentClient();
+export default class ProductService {
   constructor() {
   }
-  public create = async (user: ProductModel): Promise<any> => {
+  public create = async (p: IProductEntities): Promise<any> => {
     try {
-      user.id = uuidv4();
-      const params = {
-        TableName: ProductModel.tableName,
-        Item: user,
+      return ProductModel.create(p);
+    } catch (err) {
+      console.log('err', err)
+      throw err;
+    }
+  }
+  public update = async (id: string, p: IProductEntities): Promise<any> => {
+    try {
+      p.id = id;
+      return ProductModel.update(p);
+    } catch (err) {
+      console.log('err', err)
+      throw err;
+    }
+  }
+  public findOne = async (id: string): Promise<any> => {
+    try {
+      return ProductModel.get(id);
+    } catch (err) {
+      console.log('err', err)
+      throw err;
+    }
+  }
+  public find = async (query: IProductQueryEntities): Promise<any> => {
+    try {
+      const { name, minPrice, maxPrice, limit, startAt } = query;
+      console.log(query)
+      let co = new dynamoose.Condition();
+      if (name) {
+        co = co.where('name').contains(name);
       }
-      console.log(user);
-      const result = await this.documentClient.put(params).promise();
-      console.log('result', result);
+      let qB = ProductModel.scan(co) as any;
+      if (startAt) {
+        qB = qB.startAt({id: startAt})
+      }
+      const exec = await qB.limit(limit).exec();
+      console.log('last key', exec.lastKey)
+      console.log('json', exec.toJSON())
+
+      return { results: exec.toJSON(), lastKey: exec.lastKey};
+    } catch (err) {
+      console.log('err', err)
+      throw err;
+    }
+  }
+  public del = async (p): Promise<any> => {
+    try {
+      return ProductModel.delete(p);
     } catch (err) {
       console.log('err', err)
       throw err;

@@ -8,3 +8,8 @@ export default {
   port: process.env.APP_PORT,
   portSchedule: process.env.APP_PORT_SCHEDULE || '2021',
 };
+
+export const PAGE_SIZE = {
+  Standand: 10,
+  Products: 2,
+};

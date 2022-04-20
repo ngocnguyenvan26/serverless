@@ -1,22 +1,16 @@
 import Joi from "joi";
-export class ProductValidate {
-  private joi: Joi.AnySchema;
-  // public vCreateOrUpdate = async (obj: object): Promise<Joi.ValidationResult> => {
-  //   const schema = Joi.object().keys({
-  //     name: Joi.string().required(),
-  //     price: Joi.number().required()
-  //   });
-  //   return schema.validate(obj);
-  // }
-  public vCreateOrUpdate(signupObj: any) {
-    const object = {
-        name: Joi.string().required(),
-        price: Joi.number().required() 
-    };
-    return this.setUpJoi(object, signupObj);
+export default class ProductValidate {
+  public vCreateOrUpdate = async (obj: object): Promise<object> => {
+    const schema = Joi.object().keys({
+      name: Joi.string().required(),
+      price: Joi.number().required()
+    });
+    return schema.validateAsync(obj);
   }
-  private setUpJoi(objectInit: any, objectUpdate: any) {
-    this.joi = Joi.object(objectInit);
-    return this.joi.validateAsync(objectUpdate);
+  public vId = async (obj: number): Promise<object> => {
+    const schema = Joi.object().keys({
+      id: Joi.string().required().uuid(),
+    });
+    return schema.validateAsync(obj);
   }
 }

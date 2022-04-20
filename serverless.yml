@@ -4,7 +4,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   environment:
-    NODE_ENV: dev
+    NODE_ENV: uat
     apiVersion: 2
 
 plugins:

@@ -9,16 +9,12 @@ dotenv.config({
 import ProductController from './productController';
 const productController = new ProductController();
 
-export const create: Handler = (event: any, context: Context) => {
-  return productController.create(event, context);
-};
+export const create: Handler = (event: any, context: Context) => productController.create(event, context);
 
-export const update: Handler = (event: any) => productController.update(event);
+export const update: Handler = (event: any, context: Context) => productController.update(event, context);
 
-export const find: Handler = () => productController.find();
+export const find: Handler = (event: any, context: Context)=> productController.find(event, context);
 
-export const findOne: Handler = (event: any, context: Context) => {
-  return productController.findOne(event, context);
-};
+export const findOne: Handler = (event: any, context: Context) => productController.findOne(event, context);
 
-export const deleteOne: Handler = (event: any) => productController.deleteOne(event);
+export const deleteOne: Handler = (event: any, context: Context) => productController.deleteOne(event, context);

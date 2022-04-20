@@ -19,13 +19,14 @@ class Result {
     this.statusCode = statusCode;
     this.code = code;
     this.message = message;
-    this.data = data;
+    this.data = (code == StatusCode.success && !data) ? {} : data;
   }
 
   /**
    * Serverless: According to the API Gateway specs, the body content must be stringified
    */
   bodyToString () {
+    console.log(this.data)
     return {
       statusCode: this.statusCode,
       body: JSON.stringify({
