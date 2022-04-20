@@ -46,7 +46,6 @@ export default class ProductService {
       const exec = await qB.limit(limit).exec();
       console.log('last key', exec.lastKey)
       console.log('json', exec.toJSON())
-
       return { results: exec.toJSON(), lastKey: exec.lastKey, verions: config.VERSIONS};
     } catch (err) {
       console.log('err', err)

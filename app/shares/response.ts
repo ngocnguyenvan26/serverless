@@ -1,3 +1,5 @@
+import config from "../config";
+
 enum StatusCode {
   success = 200,
   serverError = 500,
@@ -33,6 +35,7 @@ class Result {
         code: this.code,
         message: this.message,
         data: this.data,
+        verions: config.VERSIONS
       }),
     };
   }
