@@ -43,6 +43,8 @@ export default class ProductService {
       if (startAt) {
         qB = qB.startAt({id: startAt})
       }
+      let a = 1;
+      let b = 1;
       const exec = await qB.limit(limit).exec();
       console.log('last key', exec.lastKey)
       console.log('json', exec.toJSON())
