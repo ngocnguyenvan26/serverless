@@ -59,6 +59,7 @@ export default class ProductController {
       console.log('event.queryStringParameters', event.queryStringParameters);
       const query = new IProductQueryEntities(event.queryStringParameters)
       const result = await this.productService.find(query);
+      let a = 1;
       // const result = {}
       return ResponseUtil.success(result);
     } catch (err) {
