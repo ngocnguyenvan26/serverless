@@ -22,7 +22,6 @@ findOne:
     - http:
         path: products/{id}
         method: get
-
 deleteOne:
   handler: app/modules/products/productHandler.deleteOne
   events:

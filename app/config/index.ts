@@ -1,11 +1,5 @@
-import dotenv from 'dotenv';
-import path from 'path';
-const dotenvPath = path.join(__dirname, '../', `config/.env.${process.env.NODE_ENV}`);
-dotenv.config({
-  path: dotenvPath,
-});
 export default {
-  VERSIONS: process.env.VERSIONS
+  VERSIONS: process.env.VERSIONS || 1
 };
 
 export const PAGE_SIZE = {
