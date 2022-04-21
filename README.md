@@ -76,4 +76,4 @@ $ serverless deploy
 ## CI/CD
 
 
-![alt text](https://github.com/ngocnguyenvan26/serverless/blob/master/ci_pr.jpg?raw=true)
+![alt text](https://github.com/ngocnguyenvan26/serverless/blob/master/images/ci_pr.jpg?raw=true)
