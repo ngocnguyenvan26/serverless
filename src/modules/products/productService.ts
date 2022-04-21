@@ -1,5 +1,4 @@
 import dynamoose from 'dynamoose';
-import config from '../../config';
 import { IProductQueryEntities, IProductEntities } from './models/entities';
 import ProductModel from './models/index';
 
@@ -16,6 +15,9 @@ export default class ProductService {
   }
   public update = async (id: string, p: IProductEntities): Promise<any> => {
     try {
+      const isExist = await this.findOne(id);
+      console.log({isExist})
+      if (!isExist) throw new Error('not found');
       p.id = id;
       return ProductModel.update(p);
     } catch (err) {
@@ -25,6 +27,7 @@ export default class ProductService {
   }
   public findOne = async (id: string): Promise<any> => {
     try {
+      if (!id) throw new Error('id not null');
       return ProductModel.get(id);
     } catch (err) {
       console.log('err', err)
@@ -33,7 +36,7 @@ export default class ProductService {
   }
   public find = async (query: IProductQueryEntities): Promise<any> => {
     try {
-      const { name, minPrice, maxPrice, limit, startAt } = query;
+      const { name, limit, startAt } = query;
       console.log(query)
       let co = new dynamoose.Condition();
       if (name) {

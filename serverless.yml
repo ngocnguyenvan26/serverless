@@ -5,6 +5,7 @@ service: products
 provider:
   name: aws
   runtime: nodejs14.x
+  region: us-east-1
   environment:
     VERSIONS: ${param:VERSIONS, '1'}
   iamRoleStatements:
@@ -25,4 +26,4 @@ plugins:
   - serverless-offline
 
 functions:
-  ${file(app/modules/products/serverless.yml)}
+  ${file(src/modules/products/serverless.yml)}

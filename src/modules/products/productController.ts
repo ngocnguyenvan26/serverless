@@ -6,6 +6,8 @@ import { IProductEntities, IProductQueryEntities } from './models/entities';
 import { ResponseUtil } from '../../shares/response';
 
 export default class ProductController {
+  // productService: ProductService = new ProductService();
+  // productValidate: ProductValidate = new ProductValidate();
   productService: ProductService;
   productValidate: ProductValidate;
   constructor() {
@@ -18,13 +20,12 @@ export default class ProductController {
    */
    public create = async (event: any, context?: Context) => {
     try {
-      console.log('functionName', context.functionName);
+      console.log('functionName', context?.functionName);
       const body = await this.productValidate.vCreateOrUpdate(JSON.parse(event.body)) as IProductEntities;
       console.log('body', body);
       const result = await this.productService.create(body);
       return ResponseUtil.success(result);
     } catch (err) {
-      console.error(err);
       return ResponseUtil.error(err.message);
     }
   }
@@ -35,7 +36,7 @@ export default class ProductController {
    */
   public update = async (event: any, context?: Context) => {
     try {
-      console.log('functionName', context.functionName);
+      console.log('functionName', context?.functionName);
       console.log({event})
       const params = await this.productValidate.vId(event.pathParameters) as IProductEntities;
       const body = await this.productValidate.vCreateOrUpdate(JSON.parse(event.body)) as IProductEntities;
@@ -43,7 +44,6 @@ export default class ProductController {
       const result = await this.productService.update(params.id, body);
       return ResponseUtil.success(result);
     } catch (err) {
-      console.error(err);
       return ResponseUtil.error(err.message);
     }
   }
@@ -53,15 +53,12 @@ export default class ProductController {
    */
   public find = async (event: any, context?: Context) => {
     try {
-      console.log('functionName', context.functionName);
+      console.log('functionName', context?.functionName);
       console.log('event.queryStringParameters', event.queryStringParameters);
       const query = new IProductQueryEntities(event.queryStringParameters)
       const result = await this.productService.find(query);
-      let a = 1;
-      // const result = {}
       return ResponseUtil.success(result);
     } catch (err) {
-      console.error(err);
       return ResponseUtil.error(err.message);
     }
   }
@@ -72,12 +69,11 @@ export default class ProductController {
    */
   public findOne = async (event: any, context?: Context) => {
     try {
-      console.log('functionName', context.functionName);
+      console.log('functionName', context?.functionName);
       const params = await this.productValidate.vId(event.pathParameters) as IProductEntities;
       const result = await this.productService.findOne(params.id);
       return ResponseUtil.success(result);
     } catch (err) {
-      console.error(err);
       return ResponseUtil.error(err.message);
     }
   }
@@ -88,12 +84,11 @@ export default class ProductController {
    */
   public deleteOne = async (event: any, context?: Context) => {
     try {
-      console.log('functionName', context.functionName);
+      console.log('functionName', context?.functionName);
       const params = await this.productValidate.vId(event.pathParameters) as IProductEntities;
       const result = await this.productService.del(params.id);
       return ResponseUtil.success(result);
     } catch (err) {
-      console.error(err);
       return ResponseUtil.error(err.message);
     }
   }
