@@ -74,3 +74,6 @@ $ serverless deploy
   DELETE - https://hc44ryn5ue.execute-api.us-east-1.amazonaws.com/dev/products/{id}
 ```
 ## CI/CD
+
+
+![alt text](https://github.com/ngocnguyenvan26/serverless/blob/master/ci_pr.jpg?raw=true)
