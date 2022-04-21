@@ -1,4 +1,4 @@
-import config from '../config';
+import config from './config';
 
 enum StatusCode {
   success = 200,
