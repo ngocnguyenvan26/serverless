@@ -1,4 +1,5 @@
-import { PAGE_SIZE } from '../../../config';
+import { PAGE_SIZE } from '../../../shares/config';
+
 export class IProductQueryEntities {
   minPrice: number = null;
   maxPrice: number = null;
