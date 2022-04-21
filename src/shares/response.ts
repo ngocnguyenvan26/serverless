@@ -1,11 +1,11 @@
-import config from "../config";
+import config from '../config';
 
 enum StatusCode {
   success = 200,
   serverError = 500,
   unAuthorize = 401,
   badRequest = 400,
-  forbidden = 403
+  forbidden = 403,
 }
 class Response {
   statusCode: number;
@@ -21,21 +21,21 @@ class Result {
     this.statusCode = statusCode;
     this.code = code;
     this.message = message;
-    this.data = (code == StatusCode.success && !data) ? {} : data;
+    this.data = (code === StatusCode.success && !data) ? {} : data;
   }
 
   /**
    * Serverless: According to the API Gateway specs, the body content must be stringified
    */
   bodyToString () {
-    console.log(this.data)
+    console.log(this.data);
     return {
       statusCode: this.statusCode,
       body: JSON.stringify({
         code: this.code,
         message: this.message,
         data: this.data,
-        verions: config.VERSIONS
+        verions: config.VERSIONS,
       }),
     };
   }

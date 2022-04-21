@@ -1,8 +1,8 @@
 export default {
-  VERSIONS: process.env.VERSIONS || 1
+  VERSIONS: process.env.VERSIONS || '1',
 };
 
 export const PAGE_SIZE = {
   Standand: 10,
-  Products: 2
+  Products: 2,
 };

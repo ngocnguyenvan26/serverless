@@ -6,9 +6,11 @@
     "tabs",
     2
   ],
+  "import-name": 0,
+  "variable-name": 0,
+  "max-line-length": [true, 400],
   "linterOptions": {
     "exclude": [
-      "tests/*books.mock.ts"
     ]
   }
 }

@@ -9,20 +9,20 @@ export const mockProductService = {
     {
       title: 'Update Success',
       params: {
-        id: "534e6158-c6c4-4bf4-972c-1b781eb82e46",
+        id: '534e6158-c6c4-4bf4-972c-1b781eb82e46',
         model: {
-          name: "elene",
+          name: 'elene',
           price: 23,
-        }
+        },
       },
     },
     {
       title: 'Update Fail with no id',
       params: {
         model: {
-          name: "elene",
+          name: 'elene',
           price: 23,
-        }
+        },
       },
     },
     {
@@ -30,9 +30,9 @@ export const mockProductService = {
       params: {
         id: '123',
         model: {
-          name: "elene",
+          name: 'elene',
           price: 23,
-        }
+        },
       },
     },
   ],
@@ -45,15 +45,15 @@ export const mockProductService = {
     {
       title: 'Find with name',
       params: {
-        name: 'tn'
-      }
+        name: 'tn',
+      },
     },
     {
       title: 'Find with startAt',
       params: {
         name: 'tn',
-        startAt: '534e6158-c6c4-4bf4-972c-1b781eb82e46'
-      }
+        startAt: '534e6158-c6c4-4bf4-972c-1b781eb82e46',
+      },
     },
   ],
   findOneCases: [
@@ -64,7 +64,7 @@ export const mockProductService = {
     {
       title: 'Get with no id',
       params: '',
-   },
+    },
   ],
   createCases: [
     {
@@ -72,8 +72,8 @@ export const mockProductService = {
       params: {
         id: '534e6158-c6c4-4bf4-972c-1b781eb82e46',
         name: '123',
-        price: 2
-      }
+        price: 2,
+      },
     },
     {
       title: 'error',
@@ -83,33 +83,33 @@ export const mockProductService = {
   deleteCases: [
     {
       title: 'success',
-      params: '534e6158-c6c4-4bf4-972c-1b781eb82e46'
+      params: '534e6158-c6c4-4bf4-972c-1b781eb82e46',
     },
     {
       title: 'error',
       params: '',
     },
   ],
-}
+};
 export const mockProductController = {
   updateCases: [
     {
       title: 'Update Success',
       params: {
-        id: "534e6158-c6c4-4bf4-972c-1b781eb82e46",
+        id: '534e6158-c6c4-4bf4-972c-1b781eb82e46',
         model: {
-          name: "elene",
+          name: 'elene',
           price: 23,
-        }
+        },
       },
     },
     {
       title: 'Update Fail with no id',
       params: {
         model: {
-          name: "elene",
+          name: 'elene',
           price: 23,
-        }
+        },
       },
     },
     {
@@ -117,9 +117,9 @@ export const mockProductController = {
       params: {
         id: '123',
         model: {
-          name: "elene",
+          name: 'elene',
           price: 23,
-        }
+        },
       },
     },
   ],
@@ -132,15 +132,15 @@ export const mockProductController = {
     {
       title: 'Find with name',
       params: {
-        name: 'tn'
-      }
+        name: 'tn',
+      },
     },
     {
       title: 'Find with startAt',
       params: {
         name: 'tn',
-        startAt: '534e6158-c6c4-4bf4-972c-1b781eb82e46'
-      }
+        startAt: '534e6158-c6c4-4bf4-972c-1b781eb82e46',
+      },
     },
   ],
   findOneCases: [
@@ -151,7 +151,7 @@ export const mockProductController = {
     {
       title: 'Get with no id',
       params: '',
-   },
+    },
   ],
   createCases: [
     {
@@ -159,8 +159,8 @@ export const mockProductController = {
       params: {
         id: '534e6158-c6c4-4bf4-972c-1b781eb82e46',
         name: '123',
-        price: 2
-      }
+        price: 2,
+      },
     },
     {
       title: 'error',
@@ -171,13 +171,13 @@ export const mockProductController = {
     {
       title: 'success',
       params: {
-        id: '534e6158-c6c4-4bf4-972c-1b781eb82e46' 
+        id: '534e6158-c6c4-4bf4-972c-1b781eb82e46',
       },
     },
     {
       title: 'error',
       params: '',
-      isError: true
+      isError: true,
     },
   ],
-}
+};

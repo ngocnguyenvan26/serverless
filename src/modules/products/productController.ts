@@ -1,5 +1,5 @@
 import { Context } from 'aws-lambda';
-import ProductService from "./productService";
+import ProductService from './productService';
 import ProductValidate from './productValidate';
 import { IProductEntities, IProductQueryEntities } from './models/entities';
 
@@ -18,10 +18,11 @@ export default class ProductController {
    * Create user
    * @param {*} event
    */
-   public create = async (event: any, context?: Context) => {
+  public create = async (event: any, context?: Context) => {
     try {
       console.log('functionName', context?.functionName);
-      const body = await this.productValidate.vCreateOrUpdate(JSON.parse(event.body)) as IProductEntities;
+      const body = await
+        this.productValidate.vCreateOrUpdate(JSON.parse(event.body)) as IProductEntities;
       console.log('body', body);
       const result = await this.productService.create(body);
       return ResponseUtil.success(result);
@@ -37,9 +38,9 @@ export default class ProductController {
   public update = async (event: any, context?: Context) => {
     try {
       console.log('functionName', context?.functionName);
-      console.log({event})
       const params = await this.productValidate.vId(event.pathParameters) as IProductEntities;
-      const body = await this.productValidate.vCreateOrUpdate(JSON.parse(event.body)) as IProductEntities;
+      const body = await
+        this.productValidate.vCreateOrUpdate(JSON.parse(event.body)) as IProductEntities;
       console.log('params', body);
       const result = await this.productService.update(params.id, body);
       return ResponseUtil.success(result);
@@ -55,7 +56,7 @@ export default class ProductController {
     try {
       console.log('functionName', context?.functionName);
       console.log('event.queryStringParameters', event.queryStringParameters);
-      const query = new IProductQueryEntities(event.queryStringParameters)
+      const query = new IProductQueryEntities(event.queryStringParameters);
       const result = await this.productService.find(query);
       return ResponseUtil.success(result);
     } catch (err) {

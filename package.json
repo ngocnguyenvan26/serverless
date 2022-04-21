@@ -1,7 +1,7 @@
 {
-  "name": "sls-structure",
+  "name": "sls-bid",
   "version": "1.0.0",
-  "description": "This is simple REST API example for AWS Lambda By Serverless framwork with TypeScript and MongoDB Atlas.",
+  "description": "This is simple CRUD API example",
   "main": "index.js",
   "scripts": {
     "lint": "tslint -p tsconfig.json -c tslint.json",

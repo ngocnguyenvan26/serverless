@@ -1,5 +1,4 @@
-import { PAGE_SIZE } from "../../../config";
-
+import { PAGE_SIZE } from '../../../config';
 export class IProductQueryEntities {
   minPrice: number = null;
   maxPrice: number = null;
@@ -7,7 +6,7 @@ export class IProductQueryEntities {
   limit: number = PAGE_SIZE.Products;
   startAt: string = '';
   constructor(query) {
-    if (!query) return
+    if (!query) return;
     this.name = query.name ? query.name : '';
     this.minPrice = query.minPrice ? query.minPrice : null;
     this.maxPrice = query.maxPrice ? query.maxPrice : null;
